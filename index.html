@@ -181,63 +181,6 @@
       backdrop-filter: blur(8px);
     }
 
-    /* ------------------------------
-       Modal overlays
-       ------------------------------ */
-    .modal{
-      position: fixed;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: rgba(11,18,32,.65);
-      backdrop-filter: blur(8px);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity .25s ease, visibility .25s ease;
-      z-index: 999;
-    }
-    .modal.modal-visible{
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-    .modal-panel{
-      width: 100%;
-      max-width: 540px;
-      background: #fff;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-2);
-      padding: 32px;
-      outline: none;
-      position: relative;
-    }
-    .modal-close{
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      border: 1px solid rgba(12,18,32,.1);
-      border-radius: 999px;
-      width: 34px;
-      height: 34px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      background: #fff;
-      cursor: pointer;
-      transition: background .2s ease;
-    }
-    .modal-close:hover{
-      background: rgba(12,18,32,.05);
-    }
-    body.modal-open{
-      overflow: hidden;
-    }
-
     /* Ensure ornaments never overlap hero image in stacking */
     .z-content{ position: relative; z-index: 10; }
   </style>
@@ -262,8 +205,8 @@
         <a href="#resources" class="hover:text-slate-600">Resources</a>
       </nav>
       <div class="flex items-center gap-3">
-        <a href="#contact" data-modal-trigger="contact" class="hidden sm:inline-flex btn btn-ghost">Contact</a>
-        <a href="#cta" data-modal-trigger="pilot" class="btn btn-primary">Request a Pilot</a>
+        <a href="https://41i1ts.share-na2.hsforms.com/2d2nH1hftTi-kOeg4Ar1_BA" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn btn-ghost">Contact</a>
+        <a href="https://41i1ts.share-na2.hsforms.com/2d2nH1hftTi-kOeg4Ar1_BA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Request a Pilot</a>
       </div>
     </div>
   </header>
@@ -529,96 +472,12 @@
           and aim our red-teaming engine at the models that matter most to you.
         </p>
         <div class="mt-6 flex justify-center gap-3">
-          <a href="#contact" data-modal-trigger="pilot" class="btn btn-primary">Request a Pilot</a>
+          <a href="https://41i1ts.share-na2.hsforms.com/2d2nH1hftTi-kOeg4Ar1_BA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Request a Pilot</a>
           <a href="#product" class="btn btn-ghost">Explore components</a>
         </div>
       </div>
     </div>
   </section>
-
-  <div id="contact" class="sr-only" aria-hidden="true"></div>
-
-  <!-- =========================
-       CONTACT + PILOT MODALS
-  ========================== -->
-  <div class="modal" data-modal="contact" aria-hidden="true" role="dialog" aria-labelledby="contact-modal-title">
-    <div class="modal-panel" data-modal-panel tabindex="-1">
-      <button type="button" class="modal-close" data-modal-close aria-label="Close contact form">&times;</button>
-      <p class="kicker mb-4">Talk to Snowcrash</p>
-      <h3 id="contact-modal-title" class="text-2xl font-semibold">Contact the team</h3>
-      <p class="text-[color:var(--muted)] mt-2">Share a few details and we’ll reply within one business day.</p>
-      <form class="mt-6 space-y-4" data-modal-form="contact">
-        <div>
-          <label for="contact-name" class="text-sm font-medium text-slate-700">Full name</label>
-          <input id="contact-name" name="name" type="text" required
-                 class="mt-1 w-full rounded-2xl border border-[color:var(--line)] px-4 py-3 focus:border-slate-400 focus:ring-2 focus:ring-slate-200" />
-        </div>
-        <div>
-          <label for="contact-email" class="text-sm font-medium text-slate-700">Work email</label>
-          <input id="contact-email" name="email" type="email" required
-                 class="mt-1 w-full rounded-2xl border border-[color:var(--line)] px-4 py-3 focus:border-slate-400 focus:ring-2 focus:ring-slate-200" />
-        </div>
-        <div>
-          <label for="contact-company" class="text-sm font-medium text-slate-700">Company or organization</label>
-          <input id="contact-company" name="company" type="text"
-                 class="mt-1 w-full rounded-2xl border border-[color:var(--line)] px-4 py-3 focus:border-slate-400 focus:ring-2 focus:ring-slate-200" />
-        </div>
-        <div>
-          <label for="contact-message" class="text-sm font-medium text-slate-700">How can we help?</label>
-          <textarea id="contact-message" name="message" rows="4" required
-                    class="mt-1 w-full rounded-2xl border border-[color:var(--line)] px-4 py-3 focus:border-slate-400 focus:ring-2 focus:ring-slate-200"></textarea>
-        </div>
-        <p class="text-sm font-medium text-emerald-600 min-h-[20px]" data-form-status></p>
-        <button type="submit" class="btn btn-primary w-full justify-center">Send message</button>
-        <p class="text-xs text-center text-[color:var(--muted)]">We keep responses confidential and never share your details.</p>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal" data-modal="pilot" aria-hidden="true" role="dialog" aria-labelledby="pilot-modal-title">
-    <div class="modal-panel" data-modal-panel tabindex="-1">
-      <button type="button" class="modal-close" data-modal-close aria-label="Close pilot request form">&times;</button>
-      <p class="kicker mb-4">Request a pilot</p>
-      <h3 id="pilot-modal-title" class="text-2xl font-semibold">Spin up a Snowcrash pilot</h3>
-      <p class="text-[color:var(--muted)] mt-2">We’ll coordinate access to the intelligence feed, defender, router, and red-team engine.</p>
-      <form class="mt-6 space-y-4" data-modal-form="pilot">
-        <div>
-          <label for="pilot-name" class="text-sm font-medium text-slate-700">Full name</label>
-          <input id="pilot-name" name="name" type="text" required
-                 class="mt-1 w-full rounded-2xl border border-[color:var(--line)] px-4 py-3 focus:border-slate-400 focus:ring-2 focus:ring-slate-200" />
-        </div>
-        <div>
-          <label for="pilot-email" class="text-sm font-medium text-slate-700">Work email</label>
-          <input id="pilot-email" name="email" type="email" required
-                 class="mt-1 w-full rounded-2xl border border-[color:var(--line)] px-4 py-3 focus:border-slate-400 focus:ring-2 focus:ring-slate-200" />
-        </div>
-        <div>
-          <label for="pilot-company" class="text-sm font-medium text-slate-700">Company or agency</label>
-          <input id="pilot-company" name="company" type="text" required
-                 class="mt-1 w-full rounded-2xl border border-[color:var(--line)] px-4 py-3 focus:border-slate-400 focus:ring-2 focus:ring-slate-200" />
-        </div>
-        <div>
-          <label for="pilot-scope" class="text-sm font-medium text-slate-700">What should the pilot cover?</label>
-          <textarea id="pilot-scope" name="scope" rows="3"
-                    class="mt-1 w-full rounded-2xl border border-[color:var(--line)] px-4 py-3 focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
-                    placeholder="Models to harden, environments, success metrics..."></textarea>
-        </div>
-        <div>
-          <label for="pilot-timeline" class="text-sm font-medium text-slate-700">Deployment timeline</label>
-          <select id="pilot-timeline" name="timeline"
-                  class="mt-1 w-full rounded-2xl border border-[color:var(--line)] bg-white px-4 py-3 focus:border-slate-400 focus:ring-2 focus:ring-slate-200">
-            <option value="asap">ASAP (next 2 weeks)</option>
-            <option value="30">Within 30 days</option>
-            <option value="60">1–2 months</option>
-            <option value="later">Planning / exploring</option>
-          </select>
-        </div>
-        <p class="text-sm font-medium text-emerald-600 min-h-[20px]" data-form-status></p>
-        <button type="submit" class="btn btn-primary w-full justify-center">Submit pilot request</button>
-        <p class="text-xs text-center text-[color:var(--muted)]">We’ll coordinate a kickoff call and securely exchange any required NDAs.</p>
-      </form>
-    </div>
-  </div>
 
   <!-- =========================
        FOOTER
@@ -633,90 +492,10 @@
       <div class="flex items-center gap-6">
         <a href="#" class="hover:text-slate-800">Privacy</a>
         <a href="#" class="hover:text-slate-800">Terms</a>
-        <a href="#contact" data-modal-trigger="contact" class="hover:text-slate-800">Contact</a>
+        <a href="https://41i1ts.share-na2.hsforms.com/2d2nH1hftTi-kOeg4Ar1_BA" target="_blank" rel="noopener noreferrer" class="hover:text-slate-800">Contact</a>
       </div>
       <div>© 2025 Snowcrash Security</div>
     </div>
   </footer>
-
-  <script>
-    (function () {
-      const body = document.body;
-      const modalSelector = '[data-modal]';
-
-      const getModal = (name) => document.querySelector(`${modalSelector}[data-modal="${name}"]`);
-
-      const openModal = (name) => {
-        const modal = getModal(name);
-        if (!modal) return;
-        modal.classList.add('modal-visible');
-        modal.setAttribute('aria-hidden', 'false');
-        body.classList.add('modal-open');
-        const panel = modal.querySelector('[data-modal-panel]');
-        if (panel) {
-          panel.focus({ preventScroll: true });
-        }
-      };
-
-      const closeModal = (modal) => {
-        modal.classList.remove('modal-visible');
-        modal.setAttribute('aria-hidden', 'true');
-        if (!document.querySelector('.modal.modal-visible')) {
-          body.classList.remove('modal-open');
-        }
-      };
-
-      document.querySelectorAll('[data-modal-trigger]').forEach((trigger) => {
-        trigger.addEventListener('click', (event) => {
-          event.preventDefault();
-          openModal(trigger.dataset.modalTrigger);
-        });
-      });
-
-      document.querySelectorAll('[data-modal-close]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const modal = btn.closest(modalSelector);
-          if (modal) closeModal(modal);
-        });
-      });
-
-      document.querySelectorAll(modalSelector).forEach((modal) => {
-        modal.addEventListener('click', (event) => {
-          if (event.target === modal) {
-            closeModal(modal);
-          }
-        });
-      });
-
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-          const visibleModal = document.querySelector('.modal.modal-visible');
-          if (visibleModal) {
-            closeModal(visibleModal);
-          }
-        }
-      });
-
-      document.querySelectorAll('[data-modal-form]').forEach((form) => {
-        form.addEventListener('submit', (event) => {
-          event.preventDefault();
-          const status = form.querySelector('[data-form-status]');
-          const messages = {
-            contact: 'Thanks! The team will be in touch shortly.',
-            pilot: 'Pilot request received — we\'ll follow up with next steps.'
-          };
-          const message = messages[form.dataset.modalForm] || 'Submitted successfully.';
-          if (status) {
-            status.textContent = message;
-          }
-          form.reset();
-          setTimeout(() => {
-            if (status) status.textContent = '';
-          }, 4000);
-        });
-      });
-    })();
-  </script>
-
 </body>
 </html>
